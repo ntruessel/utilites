@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+if [[ "$#" -eq 1 ]]; then
+	VOLUME=$1
+else
+	VOLUME=$(rofi -dmenu -p "Volume")
+fi
+
+
+if [[ "$VOLUME" =~ ^[0-9]{1,3}$ ]]; then
+	ddcutil setvcp 62 $VOLUME
+fi

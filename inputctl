@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# DP1 = 0x0f
+# DP2 = 0x10
+# HDMI1 = 0x11
+# HDMI2 = 0x12
+
+DMENU="rofi -dmenu"
+
+CHOICE=$(printf "Desktop\nDock" | ${DMENU} -i -p 'Select Input Source')
+
+case $CHOICE in
+	Desktop*)
+		ddcutil setvcp 60 0x0f
+		;;
+	Dock*)
+		ddcutil setvcp 60 0x10
+		;;
+esac
