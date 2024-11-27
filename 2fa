@@ -5,5 +5,5 @@ ykman oath &> /dev/null
 DMENU="rofi -dmenu"
 
 if [ $? -eq 0 ]; then
-	ykman oath code -s $(ykman oath list | ${DMENU} -i -p "Select Credential" -no-custom) | xclip -selection "clipboard"
+	ykman oath code -s "$(ykman oath list | ${DMENU} -i -p 'Select Credential' -no-custom)" | xclip -selection "clipboard"
 fi
